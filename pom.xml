@@ -14,10 +14,23 @@
         <aspectj.version>1.9.1</aspectj.version>
         <driver>chrome</driver>
         <domain>https://jdi-testing.github.io/jdi-light/</domain>
-        <allure.testng>2.7.0</allure.testng>
+        <allure.version>2.7.0</allure.version>
         <allure.maven>2.9</allure.maven>
         <jetty.version>9.4.12.RC2</jetty.version>
+        <testng.version>6.14.3</testng.version>
     </properties>
+
+    <profiles>
+    <profile>
+        <id>checkMetalsAndColorsPage</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <suite.xml>src/test/resources/checkMetalsAndColorsPage.xml</suite.xml>
+        </properties>
+    </profile>
+    </profiles>
 
     <dependencies>
         <!--JDI-->
@@ -31,13 +44,13 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>${allure.testng}</version>
+            <version>${allure.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.14.3</version>
+            <version>${testng.version}</version>
         </dependency>
 
         <dependency>
@@ -63,7 +76,7 @@
                 <version>2.21.0</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/general.xml</suiteXmlFile>
+                        <suiteXmlFile>${suite.xml}</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>

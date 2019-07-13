@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Homework 7 - Metals And Colors Page">
+
+    <test name="MetalsAndColorsFormTest">
+        <classes>
+            <class name="homework7.MetalsAndColorsTest"/>
+        </classes>
+    </test>
+</suite>
