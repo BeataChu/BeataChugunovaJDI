@@ -10,38 +10,42 @@ import com.epam.jdi.light.elements.pageobjects.annotations.simple.XPath;
 import com.epam.jdi.light.ui.html.common.Button;
 import com.epam.jdi.light.ui.html.complex.RadioButtons;
 import homework7.entities.Substances;
+import lombok.Getter;
 
+
+@Getter
+@Css(".form")
 public class SubstancesForm extends Form<Substances> {
 
     @JDropdown(root = "#colors",
             value = ".filter-option",
             list = "li",
             expand = ".caret")
-    public Droplist colors;
+    private Droplist colors;
 
     @JDropdown(root = "#metals",
             value = ".filter-option",
             list = "li",
             expand = ".caret")
-    public Droplist metals;
+    private Droplist metals;
 
     @JDropdown(root = "#vegetables",
             value = ".filter-option",
             list = "li",
             expand = ".caret")
-    public Droplist vegetables;
+    private Droplist vegetables;
 
     @XPath("//p[@class='checkbox'][contains(.,'%s')]//label")
-    public UIElement elements;
+    private UIElement elements;
 
     @Css("#odds-selector p")
-    public RadioButtons odds;
+    private RadioButtons odds;
 
     @Css("#even-selector p")
-    public RadioButtons even;
+    private RadioButtons even;
 
     @UI("['Submit']")
-    public Button submit;
+    private Button submit;
 
     @Override
     public void submit(Substances entity) {
@@ -50,6 +54,7 @@ public class SubstancesForm extends Form<Substances> {
         for (String element : entity.getElements()) {
             elements.select(element);
         }
+
         for (Integer digit : entity.getSummary()) {
             if (digit % 2 == 0) {
                 even.select(digit.toString());
@@ -57,6 +62,7 @@ public class SubstancesForm extends Form<Substances> {
                 odds.select(digit.toString());
             }
         }
+        vegetables.select("Vegetables");
         for (String veg : entity.getVegetables()) {
             vegetables.select(veg);
         }

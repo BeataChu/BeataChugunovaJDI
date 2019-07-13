@@ -22,7 +22,6 @@ public class MetalsAndColorsTest extends TestsInit {
         homePage.shouldBeOpened();
         headerMenu.select(MetalsColors.getUpperCase());
         metalsColorsPage.checkOpened();
-        substancesForm.vegetables.select("Vegetables");
         substancesForm.submit(DEFAULT_SUBSTANCES);
 
         assertTrue(FormChecker.checkSubstancesForm(resultsLog, DEFAULT_SUBSTANCES));
