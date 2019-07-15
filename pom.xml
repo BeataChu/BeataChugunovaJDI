@@ -25,12 +25,22 @@
     <profile>
         <id>checkMetalsAndColorsPage</id>
         <activation>
-            <activeByDefault>true</activeByDefault>
+            <activeByDefault>false</activeByDefault>
         </activation>
         <properties>
             <suite.xml>src/test/resources/checkMetalsAndColorsPage.xml</suite.xml>
         </properties>
     </profile>
+
+        <profile>
+            <id>useJsonToCheckMetalsAndColorsPage</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/useJsonToCheckMetalsAndColorsPage.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
