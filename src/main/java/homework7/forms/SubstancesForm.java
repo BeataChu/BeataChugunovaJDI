@@ -35,6 +35,10 @@ public class SubstancesForm extends Form<Substances> {
             expand = ".caret")
     private Droplist vegetables;
 
+//    @Css("#elements-checklist p")
+//    private Checklist elements = new HtmlChecklist();
+//    Exception: invalid selector: An invalid or illegal selector was specified
+
     @XPath("//p[@class='checkbox'][contains(.,'%s')]//label")
     private UIElement elements;
 

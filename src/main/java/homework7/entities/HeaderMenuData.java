@@ -21,8 +21,4 @@ public enum HeaderMenuData {
     HeaderMenuData(String value) {
         this.value = value;
     }
-
-    public String getUpperCase() {
-        return value.toUpperCase();
-    }
 }
