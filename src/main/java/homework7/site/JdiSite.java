@@ -7,7 +7,9 @@ import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.UI;
+import com.epam.jdi.light.ui.html.base.HtmlList;
 import com.epam.jdi.light.ui.html.complex.Menu;
+import homework7.entities.HeaderMenuData;
 import homework7.pages.HomePage;
 import homework7.pages.MetalsAndColorsPage;
 import homework7.custom.MenuItem;
@@ -22,13 +24,21 @@ public class JdiSite {
 
     @FindBy(id = "login-form")
     public static Form<Users> loginForm;
+
     @Css(".profile-photo [ui=label]")
     public static UIElement userName;
+
     @Css("img#user-icon")
     public static WebElement userIcon;
 
     @Css(".m-l8")
-    public static Menu headerMenu;
+    public static Menu headerMenu = new HtmlList() {
+        @Override
+        public void select(String value) {
+            super.select(value.toUpperCase());
+        }
+    };
+
     @UI(".sidebar-menu li")
     public static JList<MenuItem> menu;
 

@@ -20,12 +20,12 @@ public class MetalsAndColorsTest extends TestsInit {
         homePage.checkLoggedin(Users.PITER);
 
         homePage.shouldBeOpened();
-        headerMenu.select(MetalsColors.getUpperCase());
+        // TODO This is a really great idea to use this element, but
+        // it will be better to pass here ENUM itself rather than String.
+        headerMenu.select(MetalsColors);
         metalsColorsPage.checkOpened();
         substancesForm.submit(DEFAULT_SUBSTANCES);
 
         assertTrue(FormChecker.checkSubstancesForm(resultsLog, DEFAULT_SUBSTANCES));
-
     }
-
 }

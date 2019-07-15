@@ -51,6 +51,8 @@ public class SubstancesForm extends Form<Substances> {
     public void submit(Substances entity) {
         colors.select(entity.getColors());
         metals.select(entity.getMetals());
+
+        // TODO Take  a look on HtmlCheckList
         for (String element : entity.getElements()) {
             elements.select(element);
         }
@@ -69,6 +71,5 @@ public class SubstancesForm extends Form<Substances> {
 
         submit.click();
     }
-
 }
 
