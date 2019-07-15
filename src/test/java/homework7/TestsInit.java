@@ -1,10 +1,10 @@
 package homework7;
 
 import com.epam.jdi.light.driver.get.DriverData;
+import homework7.site.JdiSite;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import homework7.site.JdiSite;
 
 import static com.epam.jdi.light.driver.WebDriverUtils.killAllSeleniumDrivers;
 import static com.epam.jdi.light.logger.LogLevels.STEP;

@@ -9,11 +9,10 @@ import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.UI;
 import com.epam.jdi.light.ui.html.base.HtmlList;
 import com.epam.jdi.light.ui.html.complex.Menu;
-import homework7.entities.HeaderMenuData;
-import homework7.pages.HomePage;
-import homework7.pages.MetalsAndColorsPage;
 import homework7.custom.MenuItem;
 import homework7.entities.Users;
+import homework7.pages.HomePage;
+import homework7.pages.MetalsAndColorsPage;
 import org.openqa.selenium.WebElement;
 
 @JSite("https://epam.github.io/JDI/")

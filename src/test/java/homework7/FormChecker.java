@@ -21,7 +21,7 @@ public class FormChecker {
         }
         expectedResults.add("Summary: " + sum);
         expectedResults.add(buildLine("Elements: ", substances.getElements()));
-        expectedResults.add("Color: " + substances.getColors());
+        expectedResults.add("Color: " + substances.getColor());
         expectedResults.add("Metal: " + substances.getMetals());
         expectedResults.add(buildLine("Vegetables: ", substances.getVegetables()));
 

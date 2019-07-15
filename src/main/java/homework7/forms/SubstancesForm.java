@@ -53,7 +53,7 @@ public class SubstancesForm extends Form<Substances> {
 
     @Override
     public void submit(Substances entity) {
-        colors.select(entity.getColors());
+        colors.select(entity.getColor());
         metals.select(entity.getMetals());
 
         // TODO Take  a look on HtmlCheckList

@@ -1,31 +1,40 @@
-package homework7;
+package homework8;
 
+import homework7.FormChecker;
+import homework7.TestsInit;
+import homework7.entities.Substances;
 import homework7.entities.Users;
 import homework7.site.JdiSite;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import static homework7.entities.Defaults.DEFAULT_SUBSTANCES;
 import static homework7.entities.HeaderMenuData.MetalsColors;
 import static homework7.pages.MetalsAndColorsPage.resultsLog;
 import static homework7.pages.MetalsAndColorsPage.substancesForm;
 import static homework7.site.JdiSite.*;
+import static homework8.states.State.loggedOut;
 import static org.testng.Assert.assertTrue;
 
-public class MetalsAndColorsTest extends TestsInit {
+public class DataProviderMetalsColorsTest extends TestsInit {
 
-    @Test
-    public void userCanSubmitMetalsAndColorsForm() {
+
+    @Test(dataProviderClass = InputProvider.class, dataProvider = "inputData")
+    public void useJsonToSubmitMetalsColorsForm(Substances entity) {
         JdiSite.open();
         homePage.login(Users.PITER);
         homePage.checkLoggedin(Users.PITER);
 
         homePage.shouldBeOpened();
-        // TODO This is a really great idea to use this element, but
-        // TODO it will be better to pass here ENUM itself rather than String.
         headerMenu.select(MetalsColors);
         metalsColorsPage.checkOpened();
-        substancesForm.submit(DEFAULT_SUBSTANCES);
+        substancesForm.submit(entity);
 
-        assertTrue(FormChecker.checkSubstancesForm(resultsLog, DEFAULT_SUBSTANCES));
+        assertTrue(FormChecker.checkSubstancesForm(resultsLog, entity));
     }
+
+    @AfterMethod
+    public void tearDown() {
+        loggedOut();
+    }
+
 }
