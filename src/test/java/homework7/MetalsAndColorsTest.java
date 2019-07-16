@@ -20,8 +20,6 @@ public class MetalsAndColorsTest extends TestsInit {
         homePage.checkLoggedin(Users.PITER);
 
         homePage.shouldBeOpened();
-        // TODO This is a really great idea to use this element, but
-        // TODO it will be better to pass here ENUM itself rather than String.
         headerMenu.select(MetalsColors);
         metalsColorsPage.checkOpened();
         substancesForm.submit(DEFAULT_SUBSTANCES);

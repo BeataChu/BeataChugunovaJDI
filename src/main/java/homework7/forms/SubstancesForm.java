@@ -56,7 +56,6 @@ public class SubstancesForm extends Form<Substances> {
         colors.select(entity.getColor());
         metals.select(entity.getMetals());
 
-        // TODO Take  a look on HtmlCheckList
         for (String element : entity.getElements()) {
             elements.select(element);
         }
