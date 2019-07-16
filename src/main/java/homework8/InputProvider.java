@@ -8,6 +8,7 @@ import org.testng.annotations.DataProvider;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class InputProvider {
     @DataProvider(name = "inputData")
     public static Object[] inputData() {
 
-        Map<String, Substances> map = null;
+        Map<String, Substances> map = new HashMap<>();
         Gson gson = new Gson();
         try (Reader reader = new FileReader(DATA_SET)) {
             map = gson.fromJson(reader, new TypeToken<Map<String, Substances>>() {
@@ -27,12 +28,13 @@ public class InputProvider {
             e.printStackTrace();
         }
 
-        Object[] array = new Object[map.size()];
-        Iterator<Substances> iterator = map.values().iterator();
-        for (int i = 0; iterator.hasNext(); i++) {
-            array[i] = iterator.next();
-        }
-
-        return array;
+//        Object[] array = new Object[map.size()];
+//        Iterator<Substances> iterator = map.values().iterator();
+//        for (int i = 0; iterator.hasNext(); i++) {
+//            array[i] = iterator.next();
+//        }
+//
+//        return array;
+        return map.values().toArray();
     }
 }
